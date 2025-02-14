@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAKO RIVNE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="./wako.html">
+                <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" width="110" height="110"
+                    class="headerimg">
+            </a>
+            <h1>
+                Рівненська міська
+                федерація кікбоксингу
+                WAKO
+            </h1>
+            <a href="./wako.html">
+                <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" width="110" height="110"
+                    class="headerimg">
+            </a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="./wako.html">Головна</a></li>
+            <li><a href="./news.html">Новини</a></li>
+            <li><a href="#sud_corp">Суддівський корпус</a></li>
+            <li><a href="#rules">Правила</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <!-- Слайдер для відео та фото -->
+            <div class="video-container">
+                <video class="my-video" muted autoplay loop playsinline>
+                    <source src="./videos/WG22.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <h2 id="training"></h2>
+            <p></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <a href="./wako.html" class="footer-link">
+                <svg width="180" height="180" class="footer-icon">
+                    <use href="./img/wakologo.svg#icon-wakologo"></use>
+                </svg>
+            </a>
+            <address class="contact-info">
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">wakorivne@gmail.com</a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="tel:+380986982638" class="contacts-link">+38 (098) 698 2638</a>
+                    </li>
+                    <li>
+                        <p>м.Рівне вул.Пушкіна 6</p>
+                    </li>
+                </ul>
+            </address>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100064558941086" target="_blank" class="social-link">
+                    <svg width="20" height="20" class="social-icon">
+                        <use href="./img/symbol-defs.svg#icon-facebook"></use>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/wakorivne/" target="_blank" class="social-link">
+                    <svg width="20" height="20" class="social-icon">
+                        <use href="./img/symbol-defs.svg#icon-instagram"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <p class="footer-av">&copy; 2025 WAKO RIVNE. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        // Мобільне меню
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        // Функціонал слайдера
+        const mediaContainer = document.querySelector('.media-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        function getMediaItemWidth() {
+            const item = mediaContainer.querySelector('.media-item');
+            return item ? item.clientWidth + 10 : 0;
+        }
+        prevBtn.addEventListener('click', function () {
+            mediaContainer.scrollBy({ left: -getMediaItemWidth(), behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', function () {
+            mediaContainer.scrollBy({ left: getMediaItemWidth(), behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

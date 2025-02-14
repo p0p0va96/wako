@@ -1,0 +1,276 @@
+/* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+/* Header */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Ліве та праве зображення по краях */
+  align-items: center;
+  padding: 10px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.header-container h1 {
+  flex: 1; /* Заголовок займає весь проміжок */
+  text-align: center; /* Центрування тексту */
+  margin: 0;
+  font-size: 22px;
+  animation: fadeIn 1.5s ease-in-out;
+  color: #000000;
+}
+
+.headerimg {
+  /* Зображення розташовуються по краях, без додаткових відступів */
+}
+
+/* Навігація */
+nav {
+  background: #0056b3;
+  text-align: center;
+  padding: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin: 0 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Контейнер */
+.container {
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Слайдер */
+.slider {
+  position: relative;
+  width: 90%;
+  max-width: 460px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.media-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.media-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.media-item {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  margin-right: 10px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+}
+
+#prevBtn {
+  left: 0;
+}
+
+#nextBtn {
+  right: 0;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #0056b3;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.contact-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  text-align: right;
+  padding: 5px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+}
+
+.social-link {
+  background-color: #444444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-av {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  margin-top: 80px;
+}
+
+/* Адаптивність */
+/* Планшети */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-container h1 {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  .slider {
+    width: 100%;
+    max-width: 90%;
+  }
+}
+
+/* Мобільні телефони */
+@media (max-width: 480px) {
+  .header-container h1 {
+    font-size: 18px;
+  }
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+/* Анімації */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
