@@ -11,16 +11,14 @@
 <body>
     <header>
         <div class="header-container">
+            <!-- Посилання на index.html -->
             <a href="./index.html">
                 <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" width="110" height="110"
                     class="headerimg">
             </a>
-            <h1>
-                Рівненська міська
-                федерація кікбоксингу
-                WAKO
-            </h1>
-            <a href="./wako.html">
+            <h1>Рівненська міська федерація кікбоксингу WAKO</h1>
+            <!-- Посилання на wako.html (якщо дійсно існує) -->
+            <a href="./index.html">
                 <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" width="110" height="110"
                     class="headerimg">
             </a>
@@ -36,13 +34,15 @@
             <li><a href="#rules">Правила</a></li>
         </ul>
     </nav>
+
     <main>
         <div class="container">
-            <!-- Слайдер для відео та фото -->
+            <!-- Блок із відео -->
             <div class="video-container">
-                <video class="my-video" muted autoplay loop playsinline>
-                    <source src="./videos/WG22.mp4" type="video/mp4">
-                </video>
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yf2cU87y4vw?autoplay=1&mute=1"
+                    title="World Games Semi Finals 2022" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <h2 id="training"></h2>
@@ -60,13 +60,17 @@
             <address class="contact-info">
                 <ul class="contact-list">
                     <li class="contact-item">
-                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">wakorivne@gmail.com</a>
+                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">
+                            wakorivne@gmail.com
+                        </a>
                     </li>
                     <li class="contact-item">
-                        <a href="tel:+380986982638" class="contacts-link">+38 (098) 698 2638</a>
+                        <a href="tel:+380986982638" class="contacts-link">
+                            +38 (098) 698 2638
+                        </a>
                     </li>
                     <li>
-                        <p>м.Рівне вул.Пушкіна 6</p>
+                        <p>м.Рівне вул.Пушкіна 4</p>
                     </li>
                 </ul>
             </address>
@@ -91,7 +95,9 @@
         document.querySelector('.menu-toggle').addEventListener('click', function () {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-        // Функціонал слайдера
+
+        // ▼ Закоментовано або видалено код, який посилався на неіснуючі елементи (mediaContainer, prevBtn, nextBtn).
+        /*
         const mediaContainer = document.querySelector('.media-container');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
@@ -105,6 +111,7 @@
         nextBtn.addEventListener('click', function () {
             mediaContainer.scrollBy({ left: getMediaItemWidth(), behavior: 'smooth' });
         });
+        */
     </script>
 </body>
 

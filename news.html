@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAKO News</title>
+    <!-- Підключення файлу стилів -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
         <div class="header-container">
-            <a href="./wako.html">
+            <a href="./index.html">
                 <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" width="110" height="110"
                     class="headerimg">
             </a>
@@ -21,7 +22,7 @@
                 кікбоксингу
                 WAKO
             </h1>
-            <a href="./wako.html">
+            <a href="./index.html">
                 <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" width="110" height="110"
                     class="headerimg">
             </a>
@@ -31,25 +32,31 @@
     <nav>
         <div class="menu-toggle">&#9776;</div>
         <ul class="nav-links">
-            <li><a href="./wako.html">Головна</a></li>
+            <li><a href="./index.html">Головна</a></li>
             <li><a href="./news.html">Новини</a></li>
             <li><a href="#sud_corp">Суддівський корпус</a></li>
             <li><a href="#rules">Правила</a></li>
         </ul>
     </nav>
+
     <main>
         <div class="container">
             <h2 id="about">Останні заходи</h2>
             <p>Відкритий чемпіонат Рівненської області з кікбоксингу WAKO</p>
-            <!-- Слайдер для відео та фото -->
+
+            <!-- Слайдер для відео та фото (без кнопок) -->
             <div class="slider">
-                <button id="prevBtn" class="slider-btn" title="Попередній">←</button>
+                <!-- Видаляємо кнопки prevBtn / nextBtn -->
+
                 <div class="media-container">
                     <div class="media-item">
-                        <video controls>
-                            <source src="./videos/rivneobl.mp4" type="video/mp4">
-                            Ваш браузер не підтримує відео тег.
-                        </video>
+                        <iframe
+                            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Frivne1%2Fvideos%2F645301204617072%2F&show_text=false&width=560&t=0"
+                            width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowFullScreen="true">
+                        </iframe>
                     </div>
                     <div class="media-item">
                         <img src="./img/banner.jpg" alt="Фото заходу">
@@ -67,13 +74,14 @@
                         <img src="./img/stol.jpg" alt="Фото заходу">
                     </div>
                 </div>
-                <button id="nextBtn" class="slider-btn" title="Наступний">→</button>
+
             </div>
         </div>
     </main>
+
     <footer>
         <div class="footer-container">
-            <a href="./wako.html" class="footer-link">
+            <a href="./index.html" class="footer-link">
                 <svg width="180" height="180" class="footer-icon">
                     <use href="./img/wakologo.svg#icon-wakologo"></use>
                 </svg>
@@ -81,13 +89,17 @@
             <address class="contact-info">
                 <ul class="contact-list">
                     <li class="contact-item">
-                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">wakorivne@gmail.com</a>
+                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">
+                            wakorivne@gmail.com
+                        </a>
                     </li>
                     <li class="contact-item">
-                        <a href="tel:+380986982638" class="contacts-link">+38 (098) 698 2638</a>
+                        <a href="tel:+380986982638" class="contacts-link">
+                            +38 (098) 698 2638
+                        </a>
                     </li>
                     <li>
-                        <p>м.Рівне вул.Пушкіна 6</p>
+                        <p>м.Рівне вул.Пушкіна 4</p>
                     </li>
                 </ul>
             </address>
@@ -106,6 +118,46 @@
         </div>
         <p class="footer-av">&copy; 2025 WAKO RIVNE. Всі права захищені.</p>
     </footer>
+
+    <!-- JavaScript для автоматичної прокрутки та мобільного меню -->
+    <script>
+        // Мобільне меню
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Горизонтальний слайдер (автопрокрутка)
+        const mediaContainer = document.querySelector('.media-container');
+        const slides = document.querySelectorAll('.media-item');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // Ширина одного слайда
+        function getMediaItemWidth() {
+            const firstItem = slides[0];
+            if (!firstItem) return 0;
+            const style = getComputedStyle(firstItem);
+            const marginRight = parseFloat(style.marginRight) || 0;
+            return firstItem.clientWidth + marginRight;
+        }
+
+        // Перехід до вказаного слайда (плавно)
+        function goToSlide(index) {
+            mediaContainer.scrollTo({
+                left: getMediaItemWidth() * index,
+                behavior: 'smooth'
+            });
+        }
+
+        // Автоматична прокрутка кожні 3с
+        setInterval(() => {
+            currentIndex++;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            goToSlide(currentIndex);
+        }, 3000);
+    </script>
 </body>
 
 </html>
