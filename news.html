@@ -2,33 +2,30 @@
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WAKO News</title>
     <!-- Підключення файлу стилів -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+    <!-- ========= HEADER ========= -->
     <header>
         <div class="header-container">
             <a href="./index.html">
                 <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" width="110" height="110"
-                    class="headerimg">
+                    class="headerimg" />
             </a>
-            <h1>
-                Рівненська міська
-                федерація
-                кікбоксингу
-                WAKO
-            </h1>
+            <h1>Рівненська міська федерація кікбоксингу WAKO</h1>
             <a href="./index.html">
                 <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" width="110" height="110"
-                    class="headerimg">
+                    class="headerimg" />
             </a>
         </div>
     </header>
 
+    <!-- ========= НАВІГАЦІЯ ========= -->
     <nav>
         <div class="menu-toggle">&#9776;</div>
         <ul class="nav-links">
@@ -39,124 +36,189 @@
         </ul>
     </nav>
 
+    <!-- ========= ОСНОВНИЙ КОНТЕНТ ========= -->
     <main>
-        <div class="container">
-            <h2 id="about">Останні заходи</h2>
-            <p>Відкритий чемпіонат Рівненської області з кікбоксингу WAKO</p>
+        <h1>Архів Подій</h1>
+        <p>
+            У Болгарії завершився Кубок Європи 2025 з кікбоксингу WAKO, який зібрав найсильніших спортсменів із різних
+            країн. Протягом кількох днів змагань спортсмени демонстрували високу техніку, силу волі та жагу до перемоги.
+            Турнір став яскравою подією у світі кікбоксингу, підтвердивши високий рівень європейських бійців.
+            Українська збірна показала чудові результати, здобувши низку нагород та зайняла 4 командне місце, вкотре
+            довівши свою конкурентоспроможність на міжнародній арені.
+            <br /><br />
+            До складу національної делегації увійшло 9 бійців із Рівненщини з 5 осередків розвитку кікбоксингу WAKO:
+            ДЮСШ 5, Здолбунів WAKO, СК “Fight Evolution”, «Ліга Чемпіонів», ДЮСШ «Спартак» та АБМ «Легіон».
+            Серед дорослих срібло здобула Заслужений майстер спорту Аліна МАРТИНЮК. Чемпіонами турніру стали юніори:
+            Денис СТЮПКО та Георгій ЯКОВЧУК, а фіналістами та призерами - Дмитро МАЛУХІН, ОНІЩУК Валерія, ЗАЙЦЕВА
+            Анастасія, ГОЛУБКОВ Максим, НАГОРНИЙ Ярослав.
+            <br /><br />
+            Вітаємо всіх переможців та призерів змагань і бажаємо нових звершень у майбутніх турнірах!
+        </p>
 
-            <!-- Слайдер для відео та фото (без кнопок) -->
+        <!-- ========= ПЕРШИЙ СЛАЙДЕР ========= -->
+        <div class="slider-container">
+            <!-- Кнопки слайдера -->
+            <button class="prevBtn">&larr; Назад</button>
             <div class="slider">
-                <!-- Видаляємо кнопки prevBtn / nextBtn -->
-
-                <div class="media-container">
-                    <div class="media-item">
-                        <iframe
-                            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Frivne1%2Fvideos%2F645301204617072%2F&show_text=false&width=560&t=0"
-                            width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                            allowfullscreen="true"
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                            allowFullScreen="true">
-                        </iframe>
-                    </div>
-                    <div class="media-item">
-                        <img src="./img/banner.jpg" alt="Фото заходу">
-                    </div>
-                    <div class="media-item">
-                        <img src="./img/chemp1.webp" alt="Фото заходу">
-                    </div>
-                    <div class="media-item">
-                        <img src="./img/chemp2.webp" alt="Фото заходу">
-                    </div>
-                    <div class="media-item">
-                        <img src="./img/chemp3.webp" alt="Фото заходу">
-                    </div>
-                    <div class="media-item">
-                        <img src="./img/stol.jpg" alt="Фото заходу">
-                    </div>
+                <!-- Кожен слайд -->
+                <div class="slide active">
+                    <img src="./img/medal.jpg" alt="Фото заходу" />
                 </div>
-
+                <div class="slide">
+                    <img src="./img/photo1.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/photo2.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/photo3.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/photo4.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/photo5.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/zbirna.jpg" alt="Фото заходу" />
+                </div>
             </div>
+            <button class="nextBtn">Вперед &rarr;</button>
+        </div>
+
+        <p>
+            З 7 по 9 лютого в обласному центрі пройшов Відкритий чемпіонат Рівненської області з кікбоксингу WAKO.
+            У змаганнях взяло участь близько 350-ти учасників із дев’ятнадцяти регіонів нашої держави.
+            Учасники змагались у рингових боях та на татамі. Бої у ринзі проводились у перший день чемпіонату,
+            а поєдинки на татамі — у другий день першості на базі ДЮСШ 4. На урочисте відкриття чемпіонату
+            завітали представники міської влади та постійні партнери й співорганізатори чемпіонатів у Рівному.
+        </p>
+
+        <!-- ========= ДРУГИЙ СЛАЙДЕР ========= -->
+        <div class="slider-container">
+            <!-- Кнопки слайдера -->
+            <button class="prevBtn">&larr; Назад</button>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="./img/banner.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/13.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/22.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/66.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/72.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/126.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/235.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/3492.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/3754.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/3785.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/3791.jpg" alt="Фото заходу" />
+                </div>
+                <div class="slide">
+                    <img src="./img/4140.jpg" alt="Фото заходу" />
+                </div>
+            </div>
+            <button class="nextBtn">Вперед &rarr;</button>
         </div>
     </main>
 
     <footer>
         <div class="footer-container">
-            <a href="./index.html" class="footer-link">
-                <svg width="180" height="180" class="footer-icon">
-                    <use href="./img/wakologo.svg#icon-wakologo"></use>
-                </svg>
-            </a>
-            <address class="contact-info">
-                <ul class="contact-list">
-                    <li class="contact-item">
-                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">
-                            wakorivne@gmail.com
-                        </a>
-                    </li>
-                    <li class="contact-item">
-                        <a href="tel:+380986982638" class="contacts-link">
-                            +38 (098) 698 2638
-                        </a>
-                    </li>
-                    <li>
-                        <p>м.Рівне вул.Пушкіна 4</p>
-                    </li>
-                </ul>
-            </address>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=100064558941086" target="_blank" class="social-link">
-                    <svg width="20" height="20" class="social-icon">
-                        <use href="./img/symbol-defs.svg#icon-facebook"></use>
+            <!-- Блок з лівого боку (логотипи) -->
+            <div class="footer-left">
+                <a href="./index.html" class="footer-link">
+                    <svg width="180" height="180" class="footer-icon">
+                        <use href="./img/wakologo.svg#icon-wakologo"></use>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/wakorivne/" target="_blank" class="social-link">
-                    <svg width="20" height="20" class="social-icon">
-                        <use href="./img/symbol-defs.svg#icon-instagram"></use>
-                    </svg>
-                </a>
+                <img src="./img/nfok.png" alt="nfok" class="lang" width="190" height="190">
+            </div>
+            <!-- Блок з правого боку (контакти, соцмережі) -->
+            <div class="footer-right">
+                <address class="contact-info">
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <a href="mailto:wakorivne@gmail.com" class="contacts-link">wakorivne@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <a href="tel:+380986982638" class="contacts-link">+38 (098) 698 2638</a>
+                        </li>
+                        <li>
+                            <h4>Ukraine, Rivne, Pushkina 4 33028</h4>
+                        </li>
+                    </ul>
+                </address>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100064558941086" target="_blank"
+                        class="social-link">
+                        <svg width="20" height="20" class="social-icon">
+                            <use href="./img/symbol-defs.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/wakorivne/" target="_blank" class="social-link">
+                        <svg width="20" height="20" class="social-icon">
+                            <use href="./img/symbol-defs.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
         <p class="footer-av">&copy; 2025 WAKO RIVNE. Всі права захищені.</p>
     </footer>
 
-    <!-- JavaScript для автоматичної прокрутки та мобільного меню -->
+
     <script>
-        // Мобільне меню
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Знаходимо всі блоки-слайдери
+            const sliderContainers = document.querySelectorAll('.slider-container');
 
-        // Горизонтальний слайдер (автопрокрутка)
-        const mediaContainer = document.querySelector('.media-container');
-        const slides = document.querySelectorAll('.media-item');
-        let currentIndex = 0;
-        const totalSlides = slides.length;
+            sliderContainers.forEach(container => {
+                const slider = container.querySelector('.slider');
+                if (!slider) return; // якщо слайдер не знайдено, пропускаємо
 
-        // Ширина одного слайда
-        function getMediaItemWidth() {
-            const firstItem = slides[0];
-            if (!firstItem) return 0;
-            const style = getComputedStyle(firstItem);
-            const marginRight = parseFloat(style.marginRight) || 0;
-            return firstItem.clientWidth + marginRight;
-        }
+                const slides = slider.querySelectorAll('.slide');
+                let currentIndex = 0;
 
-        // Перехід до вказаного слайда (плавно)
-        function goToSlide(index) {
-            mediaContainer.scrollTo({
-                left: getMediaItemWidth() * index,
-                behavior: 'smooth'
+                // Функція для показу слайда з заданим індексом
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                }
+
+                // Обробники кліків для кнопок «Назад» та «Вперед»
+                const prevBtn = container.querySelector('.prevBtn');
+                const nextBtn = container.querySelector('.nextBtn');
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    showSlide(currentIndex);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                });
             });
-        }
-
-        // Автоматична прокрутка кожні 3с
-        setInterval(() => {
-            currentIndex++;
-            if (currentIndex >= totalSlides) {
-                currentIndex = 0;
-            }
-            goToSlide(currentIndex);
-        }, 3000);
+        });
     </script>
 </body>
 

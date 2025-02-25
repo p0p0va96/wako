@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAKO RIVNE</title>
+    <!-- Підключення Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Підключення зовнішнього файлу стилів -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- ===== ШАПКА (HEADER) ===== -->
     <header>
         <div class="header-container">
-            <!-- Посилання на index.html -->
+            <!-- Лівий логотип -->
             <a href="./index.html">
-                <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" width="110" height="110"
-                    class="headerimg">
+                <img src="./img/wakowheader.png" alt="Логотип всесвітньої федерації" class="headerimg" width="250"
+                    height="250">
             </a>
             <h1>Рівненська міська федерація кікбоксингу WAKO</h1>
-            <!-- Посилання на wako.html (якщо дійсно існує) -->
+            <!-- Правий логотип -->
             <a href="./index.html">
-                <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" width="110" height="110"
-                    class="headerimg">
+                <img src="./img/rivnewakobg.png" alt="Логотип міської федерації" class="headerimg" width="250"
+                    height="250">
             </a>
         </div>
     </header>
 
+    <!-- ===== НАВІГАЦІЯ ===== -->
     <nav>
         <div class="menu-toggle">&#9776;</div>
         <ul class="nav-links">
@@ -35,83 +40,150 @@
         </ul>
     </nav>
 
+    <!-- ===== ОСНОВНИЙ КОНТЕЙНЕР (ДВАКОЛОНКОВА РОЗКЛАДКА) ===== -->
     <main>
-        <div class="container">
-            <!-- Блок із відео -->
-            <div class="video-container">
-                <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yf2cU87y4vw?autoplay=1&mute=1"
-                    title="World Games Semi Finals 2022" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="content-wrapper">
+            <!-- Ліва колонка: Основний контент -->
+            <div class="main-content">
+                <!-- Блок із відео -->
+                <div class="video-container">
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yf2cU87y4vw?autoplay=1&mute=1"
+                        title="World Games Semi Finals 2022" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
             </div>
-
-            <h2 id="training"></h2>
-            <p></p>
-        </div>
+            <div class="sidebar-container">
+                <!-- Перший сайдбар: Блок з логотипами команд (слайдер) -->
+                <aside class="sidebar">
+                    <div class="teams-logos">
+                        <h2 class="teams-title">Команди</h2>
+                        <ul class="logos-list">
+                            <li class="logo-item active">
+                                <img src="./img/zdolbuniv.jpg" alt="wakozdolbuniv" class="team-logo">
+                            </li>
+                            <li class="logo-item">
+                                <img src="./img/FCLC.png" alt="FCLC" class="team-logo">
+                            </li>
+                            <li class="logo-item">
+                                <img src="./img/budokan.jpg" alt="budokan" class="team-logo">
+                            </li>
+                            <li class="logo-item">
+                                <img src="./img/syla.png" alt="syla" class="team-logo">
+                            </li>
+                            <li class="logo-item">
+                                <img src="./img/legion.jpeg" alt="legion" class="team-logo">
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- Другий сайдбар: Блок з логотипами спонсорів (слайдер) -->
+                <aside class="sidebar">
+                    <div class="teams-logos">
+                        <h2 class="teams-title">Наші Спонсори</h2>
+                        <ul class="sponsors-list">
+                            <li class="sponsor-item active">
+                                <img src="./img/slado.png" alt="slado" class="sponsor-logo">
+                            </li>
+                            <li class="sponsor-item">
+                                <img src="./img/sambir.png" alt="sambir" class="sponsor-logo">
+                            </li>
+                            <li class="sponsor-item">
+                                <img src="./img/schaslive.png" alt="schaslive" class="sponsor-logo">
+                            </li>
+                            <li class="sponsor-item">
+                                <img src="./img/sponsor4.png" alt="Sponsor 4" class="sponsor-logo">
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
     </main>
 
+    <!-- ===== ФУТЕР (FOOTER) ===== -->
     <footer>
         <div class="footer-container">
-            <a href="./wako.html" class="footer-link">
-                <svg width="180" height="180" class="footer-icon">
-                    <use href="./img/wakologo.svg#icon-wakologo"></use>
-                </svg>
-            </a>
-            <address class="contact-info">
-                <ul class="contact-list">
-                    <li class="contact-item">
-                        <a href="mailto:wakorivne@gmail.com" class="contacts-link">
-                            wakorivne@gmail.com
-                        </a>
-                    </li>
-                    <li class="contact-item">
-                        <a href="tel:+380986982638" class="contacts-link">
-                            +38 (098) 698 2638
-                        </a>
-                    </li>
-                    <li>
-                        <p>м.Рівне вул.Пушкіна 4</p>
-                    </li>
-                </ul>
-            </address>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=100064558941086" target="_blank" class="social-link">
-                    <svg width="20" height="20" class="social-icon">
-                        <use href="./img/symbol-defs.svg#icon-facebook"></use>
+            <!-- Блок з лівого боку (логотипи) -->
+            <div class="footer-left">
+                <a href="./index.html" class="footer-link">
+                    <svg width="180" height="180" class="footer-icon">
+                        <use href="./img/wakologo.svg#icon-wakologo"></use>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/wakorivne/" target="_blank" class="social-link">
-                    <svg width="20" height="20" class="social-icon">
-                        <use href="./img/symbol-defs.svg#icon-instagram"></use>
-                    </svg>
-                </a>
+                <img src="./img/nfok.png" alt="nfok" class="lang" width="190" height="210">
+            </div>
+            <!-- Блок з правого боку (контакти, соцмережі) -->
+            <div class="footer-right">
+                <address class="contact-info">
+                    <h4>Contact us</h4>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <a href="mailto:wakorivne@gmail.com" class="contacts-link">wakorivne@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <a href="tel:+380986982638" class="contacts-link">+38 (098) 698 2638</a>
+                        </li>
+                        <li>
+                            <h4>Ukraine, Rivne, Pushkina St. 4 33028</h4>
+                        </li>
+                    </ul>
+                </address>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100064558941086" target="_blank"
+                        class="social-link">
+                        <svg width="20" height="20" class="social-icon">
+                            <use href="./img/symbol-defs.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/wakorivne/" target="_blank" class="social-link">
+                        <svg width="20" height="20" class="social-icon">
+                            <use href="./img/symbol-defs.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
         <p class="footer-av">&copy; 2025 WAKO RIVNE. Всі права захищені.</p>
     </footer>
 
+    <!-- ===== СКРИПТИ ===== -->
     <script>
-        // Мобільне меню
-        document.querySelector('.menu-toggle').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Автоматичне перемикання для списку логотипів (Команди)
+            const logosLists = document.querySelectorAll('.logos-list');
+            logosLists.forEach(list => {
+                const logoItems = list.querySelectorAll('.logo-item');
+                let currentIndex = 0;
+                function showLogo(index) {
+                    logoItems.forEach((item, i) => {
+                        item.classList.toggle('active', i === index);
+                    });
+                }
+                showLogo(currentIndex);
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % logoItems.length;
+                    showLogo(currentIndex);
+                }, 3000);
+            });
 
-        // ▼ Закоментовано або видалено код, який посилався на неіснуючі елементи (mediaContainer, prevBtn, nextBtn).
-        /*
-        const mediaContainer = document.querySelector('.media-container');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        function getMediaItemWidth() {
-            const item = mediaContainer.querySelector('.media-item');
-            return item ? item.clientWidth + 10 : 0;
-        }
-        prevBtn.addEventListener('click', function () {
-            mediaContainer.scrollBy({ left: -getMediaItemWidth(), behavior: 'smooth' });
+            // Автоматичне перемикання для списку спонсорів
+            const sponsorsLists = document.querySelectorAll('.sponsors-list');
+            sponsorsLists.forEach(list => {
+                const sponsorItems = list.querySelectorAll('.sponsor-item');
+                let currentIndex = 0;
+                function showSponsor(index) {
+                    sponsorItems.forEach((item, i) => {
+                        item.classList.toggle('active', i === index);
+                    });
+                }
+                showSponsor(currentIndex);
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % sponsorItems.length;
+                    showSponsor(currentIndex);
+                }, 3000);
+            });
         });
-        nextBtn.addEventListener('click', function () {
-            mediaContainer.scrollBy({ left: getMediaItemWidth(), behavior: 'smooth' });
-        });
-        */
     </script>
 </body>
 
