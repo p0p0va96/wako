@@ -8,6 +8,11 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #ffffff;
   color: #333333;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* ========== Animations ========== */
@@ -20,6 +25,14 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #333333;
+  text-align: center;
 }
 
 /* ========== Header Styles ========== */
@@ -38,7 +51,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border-bottom: 2px solid #0056b3;
   animation: fadeIn 1s ease;
 }
 .header-container h1 {
@@ -88,6 +100,18 @@ nav {
   font-size: 24px;
   cursor: pointer;
   color: #ffffff;
+}
+
+/* ========== Main========== */
+main {
+  background-image: url("./img/ringbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 40px 0; /* Додатковий відступ для зручності читання */
+}
+
+.main-container {
 }
 
 /* ========== Content Wrapper (Two-Column Layout) ========== */
@@ -225,6 +249,12 @@ footer {
   margin-bottom: 5px;
   display: block;
 }
+
+.contacts-link:hover {
+  color: #00bfff;
+  box-shadow: 0 2px 0 currentColor;
+}
+
 .social-icons {
   display: flex;
   gap: 10px;
@@ -253,31 +283,54 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ========== Slider Styles ========== */
+/* Фіксований контейнер слайдера */
 .slider-container {
   position: relative;
   margin: 30px auto;
-  max-width: 800px;
-  background: #ddd;
+  width: 800px; /* Фіксована ширина */
+  height: 400px; /* Фіксована висота */
+  overflow: hidden;
+  /* Ефект fadeIn */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slider-container.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Слайдер займає ті ж розміри */
+.slider {
+  display: flex;
+  width: 800px;
+  height: 400px;
   overflow: hidden;
 }
-.slider {
-  /* Контейнер для слайдів */
-}
+
+/* Кожен слайд має фіксовані розміри */
 .slide {
-  display: none;
-  text-align: center;
+  flex: 0 0 100%;
+  width: 800px;
+  height: 400px;
+  transition: opacity 0.5s ease;
   animation: fadeIn 0.5s ease;
+  display: none;
 }
+
 .slide.active {
   display: block;
 }
+
+/* Зображення мають ті ж розміри */
 .slide img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: 800px;
+  height: 400px;
+  object-fit: cover; /* або contain, якщо хочете бачити все зображення */
 }
+
+/* Кнопки навігації */
 .prevBtn,
 .nextBtn {
   position: absolute;
@@ -291,30 +344,145 @@ footer {
   font-size: 16px;
   border-radius: 4px;
 }
+
 .prevBtn {
   left: 10px;
 }
+
 .nextBtn {
   right: 10px;
+}
+
+/* ========== Team ========== */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== Стилі для елементів команди ========== */
+.team-member {
+  opacity: 0; /* Початкове значення - невидимий */
+  /* Інші ваші стилі, наприклад, background-color, box-shadow тощо */
+}
+
+/* Анімація для непарних елементів: з'являються зі зсувом зліва */
+.team-list .team-member:nth-child(odd) {
+  animation: fadeInLeft 0.8s forwards;
+}
+
+/* Анімація для парних елементів: з'являються зі зсувом зправа */
+.team-list .team-member:nth-child(even) {
+  animation: fadeInRight 0.8s forwards;
+}
+
+/* За бажанням, можна додати затримку для кожного елемента */
+.team-list .team-member:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.team-list .team-member:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.team-list .team-member:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.team-list .team-member:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.team {
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px; /* Встановлено коректне максимальне значення */
+  padding-bottom: 40px; /* Відступ знизу для розділення від футера */
+}
+
+.title-team {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 111%;
+  text-align: center;
+  color: #2e2f42;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 72px;
+  margin-top: 0;
+}
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє переносити елементи на новий рядок */
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-member {
+  background-color: #fff;
+  width: calc((100% - 80px) / 3); /* Розрахунок для 3 елементів в рядку */
+  border-radius: 0px 0px 4px 4px;
+  text-align: center;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.team-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.team-info {
+  padding: 32px 0;
+}
+
+.team-name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  margin-bottom: 8px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.team-role {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #434455;
+  text-align: center;
+  color: #666;
+  padding-top: 0;
+  padding-bottom: 8px;
 }
 
 /* ========== Responsive Styles ========== */
 
 /* Для планшетів (макс ширина 1024px) */
 @media (max-width: 1024px) {
-  .header-container {
-    min-height: 350px;
-    padding: 10px;
-  }
-  .header-container h1 {
-    font-size: 20px;
-  }
-  .headerimg {
-    max-width: 160px;
-  }
-  .nav-links a {
-    font-size: 16px;
-  }
   .content-wrapper {
     flex-direction: column;
     padding: 0 10px;
@@ -385,5 +553,42 @@ footer {
   .sidebar-container,
   .sidebar {
     width: 200px;
+  }
+}
+
+/* ========== Text Container & Learn More ========== */
+.text-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  animation: fadeIn 1s ease;
+}
+.text-container p {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.more-text {
+  display: none;
+}
+.more-text.show {
+  display: block;
+}
+.learn-more-btn {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* ========== Responsive Styles ========== */
+@media (max-width: 1024px) {
+  .slider {
+    width: 100%;
+  }
+  .text-container {
+    padding: 0 10px;
   }
 }
