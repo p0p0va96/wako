@@ -298,6 +298,16 @@
             header.style.backgroundPosition = `center calc(50% + ${offset * 0.5}px)`;
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
