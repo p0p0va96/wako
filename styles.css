@@ -27,6 +27,12 @@ html {
   }
 }
 
+h1 {
+  font-size: 48px !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+  color: rgba(0, 0, 0, 0.3); /* 0.5 – це 50% прозорості */
+}
+
 h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -36,41 +42,59 @@ h2 {
 }
 
 /* ========== Header Styles ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Шапка (header) ========== */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 420px;
+  min-height: 420px; /* Для ПК (широких екранів) */
   padding: 10px 20px;
   background-image: linear-gradient(
       to bottom,
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url("./img/wg2022.jpg");
+    url("./img/wg2022.jpg"); /* Змінити шлях до вашого фонового зображення */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  animation: fadeIn 1s ease;
+  animation: fadeIn 1s ease; /* Ефект появи */
 }
+
 .header-container h1 {
   flex: 1;
   text-align: center;
   font-size: 24px;
   color: #fff;
+  margin: 0; /* Скидаємо зайві відступи */
 }
+
+/* Логотип (якщо потрібно) */
 .headerimg {
   max-width: 200px;
   height: auto;
 }
 
-/* ========== Navigation Styles ========== */
+/* ========== Навігація ========== */
 nav {
   background-color: #333333;
   padding: 1rem;
   text-align: center;
   animation: fadeIn 1s ease;
 }
+
+/* Список посилань у меню */
 .nav-links {
   list-style: none;
   display: flex;
@@ -78,9 +102,22 @@ nav {
   margin: 0;
   padding: 0;
 }
+
+/* Кожен пункт меню */
 .nav-links li {
   margin: 0 1rem;
+  display: inline-block; /* Пункти меню в ряд */
+  position: relative; /* Для псевдоелемента ::after */
+  cursor: pointer; /* Курсор “рука” при наведенні */
+  transition: 0.4s all ease;
 }
+
+/* Зміна кольору li при hover */
+.nav-links li:hover {
+  color: #cdcdcd;
+}
+
+/* Стилі для посилань у меню */
 .nav-links a {
   text-decoration: none;
   color: #ffffff;
@@ -91,15 +128,79 @@ nav {
   transition: background-color 0.25s ease, color 0.25s ease,
     box-shadow 0.25s ease;
 }
+
+/* Ефект при наведенні на посилання: змінюємо колір і додаємо "тінь" */
 .nav-links a:hover {
   color: #00bfff;
   box-shadow: 0 2px 0 currentColor;
 }
+
+/* Лінія (анімоване підкреслення) */
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0); /* За замовчуванням лінія “стиснута” */
+  height: 2px;
+  bottom: -5px; /* Відступ лінії під текстом */
+  left: 0;
+  background-color: #0051ff; /* Колір лінії */
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+.nav-links li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Кнопка “бургер” — прихована на великих екранах */
 .menu-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
   color: #ffffff;
+}
+
+/* ========== Адаптив при ширині до 468px ========== */
+@media (max-width: 468px) {
+  .header-container {
+    flex-direction: column; /* Вертикальна компоновка */
+    align-items: center;
+    min-height: auto; /* Прибираємо 420px */
+    padding: 20px 10px;
+  }
+  .header-container h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .headerimg {
+    max-width: 150px; /* Зменшуємо логотип */
+  }
+
+  /* Бургер відображається на мобільних */
+  .menu-toggle {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Вертикальний список для меню */
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  /*
+    Якщо хочете повністю приховувати меню:
+    .nav-links { display: none; }
+    .nav-links.active { display: flex; }
+    Потім у JS робите:
+      document.querySelector('.nav-links')
+              .classList.toggle('active');
+    при кліку на ".menu-toggle".
+  */
 }
 
 /* ========== Main========== */
@@ -136,19 +237,11 @@ main {
 
 /* ========== Video Container ========== */
 .video-container {
-  /* Якщо хочемо, щоб блок розтягувався максимально, 
-     робимо ширину на 100% батьківського контейнера */
   width: 100%;
-
-  /* Якщо хочемо обмежити відео якоюсь максимальною шириною */
   max-width: 1200px; /* або інше потрібне значення */
-
-  margin: 0 auto; /* центріємо, коли є max-width */
-
-  /* Сучасний спосіб фіксувати пропорцію 16:9 */
+  margin: 0 auto;
   aspect-ratio: 16/9;
-
-  position: relative; /* якщо використовуємо fallback із padding-bottom */
+  position: relative;
 }
 
 .video-container iframe {
@@ -161,8 +254,8 @@ main {
 /* Fallback для браузерів, які не підтримують aspect-ratio */
 @supports not (aspect-ratio: 1 / 1) {
   .video-container {
-    aspect-ratio: auto; /* «знеструшуємо» */
-    padding-bottom: 56.25%; /* 16:9 = 9/16≈0.5625 => 56.25% */
+    aspect-ratio: auto;
+    padding-bottom: 56.25%; /* 16:9 */
   }
   .video-container iframe {
     position: absolute;
@@ -187,7 +280,7 @@ main {
   text-transform: uppercase;
 }
 .logos-list {
-  list-style: none; /* прибираємо крапки */
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
@@ -209,7 +302,7 @@ main {
 
 /* ========== Sponsors Logos Slider (Sidebar) ========== */
 .sponsors-list {
-  list-style: none; /* прибираємо крапки */
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
@@ -236,29 +329,32 @@ footer {
   padding: 20px;
   animation: fadeIn 1s ease;
 }
+
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
+
 .footer-left {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 20px;
 }
+
 .footer-link {
   text-decoration: none;
 }
-.footer-icon {
-  max-width: 180px;
-  height: auto;
-}
+
+.footer-icon,
 .lang {
-  max-width: 190px;
+  max-width: 80px;
   height: auto;
 }
+
 .footer-right {
   display: flex;
   flex-direction: column;
@@ -280,12 +376,10 @@ footer {
   margin-bottom: 5px;
   display: block;
 }
-
 .contacts-link:hover {
   color: #00bfff;
   box-shadow: 0 2px 0 currentColor;
 }
-
 .social-icons {
   display: flex;
   gap: 10px;
@@ -321,7 +415,6 @@ footer {
   width: 800px; /* Фіксована ширина */
   height: 400px; /* Фіксована висота */
   overflow: hidden;
-  /* Ефект fadeIn */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
@@ -332,7 +425,7 @@ footer {
   transform: translateY(0);
 }
 
-/* Слайдер займає ті ж розміри */
+/* Слайдер */
 .slider {
   display: flex;
   width: 800px;
@@ -340,7 +433,7 @@ footer {
   overflow: hidden;
 }
 
-/* Кожен слайд має фіксовані розміри */
+/* Кожен слайд */
 .slide {
   flex: 0 0 100%;
   width: 800px;
@@ -349,16 +442,13 @@ footer {
   animation: fadeIn 0.5s ease;
   display: none;
 }
-
 .slide.active {
   display: block;
 }
-
-/* Зображення мають ті ж розміри */
 .slide img {
   width: 800px;
   height: 400px;
-  object-fit: cover; /* або contain, якщо хочете бачити все зображення */
+  object-fit: cover;
 }
 
 /* Кнопки навігації */
@@ -375,11 +465,9 @@ footer {
   font-size: 16px;
   border-radius: 4px;
 }
-
 .prevBtn {
   left: 10px;
 }
-
 .nextBtn {
   right: 10px;
 }
@@ -395,7 +483,6 @@ footer {
     transform: translateX(0);
   }
 }
-
 @keyframes fadeInRight {
   from {
     opacity: 0;
@@ -407,23 +494,17 @@ footer {
   }
 }
 
-/* ========== Стилі для елементів команди ========== */
+/* Анімація з'явлення членів команди */
 .team-member {
   opacity: 0; /* Початкове значення - невидимий */
-  /* Інші ваші стилі, наприклад, background-color, box-shadow тощо */
 }
 
-/* Анімація для непарних елементів: з'являються зі зсувом зліва */
 .team-list .team-member:nth-child(odd) {
   animation: fadeInLeft 0.8s forwards;
 }
-
-/* Анімація для парних елементів: з'являються зі зсувом зправа */
 .team-list .team-member:nth-child(even) {
   animation: fadeInRight 0.8s forwards;
 }
-
-/* За бажанням, можна додати затримку для кожного елемента */
 .team-list .team-member:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -462,20 +543,25 @@ footer {
 
 .team-list {
   display: flex;
-  flex-wrap: wrap; /* Дозволяє переносити елементи на новий рядок */
+  flex-wrap: wrap;
   gap: 40px;
   list-style: none;
   padding: 0;
   margin: 0;
+  justify-content: center;
+  align-items: stretch; /* Картки з рівною висотою в рядку */
 }
 
 .team-member {
   background-color: #fff;
-  width: calc((100% - 80px) / 3); /* Розрахунок для 3 елементів в рядку */
-  border-radius: 0px 0px 4px 4px;
+  flex: 0 0 calc((100% - 80px) / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Розподіл простору у вертикальній осі */
   text-align: center;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  border-radius: 4px;
+  padding-bottom: 20px;
+  /* Інші стилі (тінь тощо) */
 }
 
 .team-photo {
@@ -503,9 +589,8 @@ footer {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #434455;
-  text-align: center;
   color: #666;
+  text-align: center;
   padding-top: 0;
   padding-bottom: 8px;
 }
@@ -520,6 +605,18 @@ footer {
   }
   .sidebar-container {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 10px;
+  }
+  .main-content {
+    padding: 10px;
+  }
+  .sidebar-container {
+    margin-top: 10px;
   }
 }
 
@@ -550,6 +647,11 @@ footer {
   .footer-right {
     align-items: center;
   }
+
+  /* Команда: 2 в рядок (або інше) */
+  .team-member {
+    flex: 0 0 calc((100% - 40px) / 2);
+  }
 }
 
 /* Для малих екранів (макс ширина 480px) */
@@ -577,9 +679,14 @@ footer {
   .footer-right {
     align-items: center;
   }
+
+  /* Команда: 1 у рядок, тобто на всю ширину */
+  .team-member {
+    flex: 0 0 100%;
+  }
 }
 
-/* ========== Для ПК (екрани більше 1024px) ========== */
+/* Для ПК (екрани більше 1024px) */
 @media (min-width: 1150px) {
   .sidebar-container,
   .sidebar {
